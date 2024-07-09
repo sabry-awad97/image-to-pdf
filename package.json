@@ -1,0 +1,20 @@
+{
+  "name": "image-to-pdf",
+  "module": "/src/index.ts",
+  "scripts": {
+    "build:cjs": "npx esbuild src/index.ts --bundle --minify --outfile=dist/index.js --platform=node --format=cjs",
+    "build:mjs": "npx esbuild src/index.ts --bundle --minify --outfile=dist/index.js --platform=node --format=esm",
+    "pkg": "npx pkg --output image-to-pdf.exe --compress GZip -t node16-win-x64 ./dist/index.js"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.21.4"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
+  }
+}
